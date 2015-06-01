@@ -1,0 +1,43 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="猜拳.css" />
+<script language="javascript" type="text/javascript" src="猜拳.js"></script>
+<title>猜拳游戏</title>
+</head>
+<body>
+<div class="div1">
+<table border="1px">
+<tr>
+	<td class="td_big">你<br><img id="you_choice_final" src="default.png" /></td>
+	<td>VS</td>
+	<td class="td_big">电脑<br><img id="computer_choice_final" src="default.png" /></td>
+</tr>
+<tr><td colspan="3"><span id="result">Draw!!</span></td></tr>
+<tr>
+	<td class="td_big">你选择了<br><img id="you_choice" src="jian.png" /></td>
+	<td>choice</td>
+	<td class="td_big">请选择出拳
+		<select  onchange="chose(this)">
+			<option value="jian.png">剪刀</option>
+			<option value="shi.png">石头</option>
+			<option value="bu.png">布</option>
+		</select>
+		</br>
+		<input type="button" value="想好了，出拳" onclick="compare()" class="button" />
+		<input type="button" value="重新再来过"  onclick="startInit()" class="button" />
+	</td>
+</tr>
+<tr>
+	<td colspan="3">总局数：<span id="play_all">0</span>
+					赢：<span id="play_win">0</span>
+					输：<span id="play_lose">0</span>
+					平：<span id="play_draw">0</span>
+	</td>
+</tr>
+</table>
+</div>
+</body>
+<html>

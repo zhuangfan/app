@@ -1,0 +1,24 @@
+#table1{
+	margin-left:100px;
+	margin-top:100px;
+	border:1px solid red;/*这个只能规定table的外部边框*/
+	width:200px;
+	height:200px;
+	border-collapse:collapse;/*这个就是我要找的，使单元格之间的边框合并*/
+}
+th{
+	border:1px solid blue;/*tr单元格的边框，这个是显示不出来的，其无边框*/
+}
+td{
+	border:1px solid yellow;/*td单元格的边框*/
+}
+/*第二个测试表格*/
+#table2{
+	margin-left:100px;
+	margin-top:100px;
+	border:1px solid red;
+	width:200px;
+	height:200px;
+	border-collapse:separate;/*单元格分离，10px*/
+	border-spacing:4px;
+}

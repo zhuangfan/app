@@ -1,0 +1,43 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	color:white;
+	font-weight:bold;
+}
+/*外面包个div*/
+.div1{
+	margin-left:100px;
+	margin-top:100px;
+}
+/*table*/
+table{
+	width:350px;
+	height:300px;
+	background-color:#522017;
+	/*border:1px solid white;*/
+	text-align:center;
+	border-collapse:collapse;
+}
+tr{
+	padding:0px;
+}
+td{
+	border:2px solid silver;
+}
+/*table中的大块的td*/
+.td_big{
+	width:14px;
+	text-align:center;
+}
+/*table中结果*/
+#result{
+	color:red;
+	font-size:24px;
+}
+/*按钮样式*/
+.button{
+	background-color:silver;
+	border:1px solid yellow;
+}
