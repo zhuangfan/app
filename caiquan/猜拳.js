@@ -43,10 +43,7 @@ Play.prototype.compareRes=function(){
 	this.getChoice();
 	if(this.you==this.computer){
 		this.res=2;	//2表示平局
-	}else if((this.you=="jian.png" && this.computer=="bu.png")||
-			(this.you=="shi.png" && this.computer=="jian.png")||
-			(this.you=="bu.png" && this.computer=="shi.png")
-		){
+	}else if((this.you=="jian.png" && this.computer=="bu.png")||(this.you=="shi.png" && this.computer=="jian.png")||(this.you=="bu.png" && this.computer=="shi.png")){
 		//alert("1");
 		this.res=1;	//你赢了
 	}else{
@@ -100,7 +97,7 @@ function compare(){
 }
 //初始化函数，将所有的图片归为初始图片，比赛结果置0，总体数组置空
 function startInit(){
-	$("you_choice").src="jian.png";
+	$("you_choice").src="default.png";
 	$("you_choice_final").src="default.png";
 	$("computer_choice_final").src="default.png";
 	$("result").innerText="Draw!!";
@@ -109,4 +106,109 @@ function startInit(){
 	$("play_lose").innerText=0;
 	$("play_draw").innerText=0;
 	arrAll=[];
+}
+
+
+
+//存储全部比赛的数组
+var arrAll2=new Array2();
+
+function $(id){
+	return document.getElementById(id);
+}
+
+//因为img对象的src是全路径，所以必须进行处理，使其返回图片名
+function handleSrc(src){
+	var arr=src.split("/");
+	return arr[arr.length-1];
+}
+//选择你要出什么的函数
+function chose2(choice){
+	$("you_choice1").src=choice.value;
+}
+function chose3(choice){
+	$("you_choice2").src=choice.value;
+}
+//存储全部比赛的数组
+var arrAll2=Array2();
+//定义一局比赛的类
+function Play2(pk1,pk2){
+	this.pk1="jian.png";
+	this.pk2="jian.png";
+	this.res2=2;
+}
+//类中获取pk1和pk2选择值的函数
+Play2.prototype.getChoice2=function(){
+	this.pk1=handleSrc($("you_choice1").src);
+	this.pk2=handleSrc($("you_choice2").src);
+}
+//类中比较并返回结果函数
+Play2.prototype.compareRes2=function(){
+	this.getChoice2();
+	if(this.pk1==this.pk2){
+		this.res2=2;	//2表示平局
+	}else if((this.pk1=="jian.png" && this.pk2=="bu.png")||(this.pk1=="shi.png" && this.pk2=="jian.png")||(this.pk1=="bu.png" && this.pk2=="shi.png")){
+		//alert("1");
+		this.res2=1;	//pk1赢了
+	}else{
+		//alert("0");
+		this.res2=0;	//pk2赢了
+	}
+}
+//类中比较完后所有的显示处理
+Play2.prototype.showRes2=function(){
+	$("choice1_final").src=this.pk1;
+	$("choice2_final").src=this.pk2;
+	switch(this.res2){
+		case 2:
+			$("result2").innerText="Draw!!";
+			break;
+		case 1:
+			$("result2").innerText="PK1 Win!!";
+			break;
+		case 0:
+			$("result2").innerText="PK2 Win!!";
+			break;
+	}
+}
+//对arrAll的显示处理函数
+function manageArrall2(){
+	var play_all2=arrAll2.length;
+	var play_win2=0;
+	var play_lose2=0;
+	var play_draw2=0;
+	for(var key in arrAll2){
+		if(arrAll2[key]==2){
+			++play_draw2;
+		}else if(arrAll2[key]==1){
+			++play_win2;
+		}else{
+			++play_lose2;
+		}
+	}
+	$("play_all2").innerText=play_all2;
+	$("play_win2").innerText=play_win2;
+	$("play_lose2").innerText=play_lose2;
+	$("play_draw2").innerText=play_draw2;
+}
+//点击按钮后的比较函数
+function compare2(){
+	var play2=new Play2();
+	play2.compareRes2();
+	play2.showRes2();
+	arrAll2.push2(play2.res2);
+	manageArrall2();
+}
+//初始化函数，将所有的图片归为初始图片，比赛结果置0，总体数组置空
+function startInit2(){
+	$("you_choice1").src="default.png";
+	$("choice1_final").src="default.png";
+	$("you_choice2").src="default.png";
+	$("choice2_final").src="default.png";
+	$("result2").innerText="Draw!!";
+	$("play_all2").innerText=0;
+	$("play_win2").innerText=0;
+	$("play_lose2").innerText=0;
+	$("play_draw2").innerText=0;
+	arrAll2=[];
 }

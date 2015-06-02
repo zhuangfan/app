@@ -1,15 +1,15 @@
 *{
-	margin:0px;
+	margin:5px;
 	padding:0px;
 }
 body{
-	color:white;
+	color:yellow;
 	font-weight:bold;
 }
 /*外面包个div*/
 .div1{
-	margin-left:100px;
-	margin-top:100px;
+	margin-left:400px;
+	margin-top:50px;
 }
 /*table*/
 table{
@@ -23,8 +23,8 @@ table{
 tr{
 	padding:0px;
 }
-td{
-	border:2px solid silver;
+td{/*边框*/
+	border:4px solid silver;
 }
 /*table中的大块的td*/
 .td_big{
@@ -38,6 +38,6 @@ td{
 }
 /*按钮样式*/
 .button{
-	background-color:silver;
-	border:1px solid yellow;
+	background-color:yellow;
+	border:2px solid red;
 }
