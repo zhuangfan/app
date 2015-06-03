@@ -111,7 +111,7 @@ function startInit(){
 
 
 //存储全部比赛的数组
-var arrAll2=new Array2();
+var arrAll2=new Array();
 
 function $(id){
 	return document.getElementById(id);
@@ -130,7 +130,7 @@ function chose3(choice){
 	$("you_choice2").src=choice.value;
 }
 //存储全部比赛的数组
-var arrAll2=Array2();
+var arrAll2=Array();
 //定义一局比赛的类
 function Play2(pk1,pk2){
 	this.pk1="jian.png";
