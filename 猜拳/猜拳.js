@@ -57,13 +57,13 @@ Play.prototype.showRes=function(){
 	$("computer_choice_final").src=this.computer;
 	switch(this.res){
 		case 2:
-			$("result").innerText="Draw!!";
+			$("result").innerHTML="Draw!!";
 			break;
 		case 1:
-			$("result").innerText="You Win!!";
+			$("result").innerHTML="You Win!!";
 			break;
 		case 0:
-			$("result").innerText="You Lose!!";
+			$("result").innerHTML="You Lose!!";
 			break;
 	}
 }
@@ -82,10 +82,10 @@ function manageArrall(){
 			++play_lose;
 		}
 	}
-	$("play_all").innerText=play_all;
-	$("play_win").innerText=play_win;
-	$("play_lose").innerText=play_lose;
-	$("play_draw").innerText=play_draw;
+	$("play_all").innerHTML=play_all;
+	$("play_win").innerHTML=play_win;
+	$("play_lose").innerHTML=play_lose;
+	$("play_draw").innerHTML=play_draw;
 }
 //点击按钮后的比较函数
 function compare(){
@@ -101,10 +101,11 @@ function startInit(){
 	$("you_choice_final").src="default.png";
 	$("computer_choice_final").src="default.png";
 	$("result").innerText="Draw!!";
-	$("play_all").innerText=0;
-	$("play_win").innerText=0;
-	$("play_lose").innerText=0;
-	$("play_draw").innerText=0;
+	$("play_all").innerHTML=0;
+	$("play_win").innerHTML=0;
+	$("play_lose").innerHTML=0;
+	$("play_draw").innerHTML=0;
+	$("result").innerHTML="Result!!";
 	arrAll=[];
 }
 
@@ -139,11 +140,13 @@ function Play2(pk1,pk2){
 }
 //类中获取pk1和pk2选择值的函数
 Play2.prototype.getChoice2=function(){
+	alert("1");
 	this.pk1=handleSrc($("you_choice1").src);
 	this.pk2=handleSrc($("you_choice2").src);
 }
 //类中比较并返回结果函数
 Play2.prototype.compareRes2=function(){
+	alert("1");
 	this.getChoice2();
 	if(this.pk1==this.pk2){
 		this.res2=2;	//2表示平局
@@ -161,17 +164,17 @@ Play2.prototype.showRes2=function(){
 	$("choice2_final").src=this.pk2;
 	switch(this.res2){
 		case 2:
-			$("result2").innerText="Draw!!";
+			$("result2").innerHTML="Draw!!";
 			break;
 		case 1:
-			$("result2").innerText="PK1 Win!!";
+			$("result2").innerHTML="PK1 Win!!";
 			break;
 		case 0:
-			$("result2").innerText="PK2 Win!!";
+			$("result2").innerHTML="PK2 Win!!";
 			break;
 	}
 }
-//对arrAll的显示处理函数
+//对arrAll2的显示处理函数
 function manageArrall2(){
 	var play_all2=arrAll2.length;
 	var play_win2=0;
@@ -186,17 +189,17 @@ function manageArrall2(){
 			++play_lose2;
 		}
 	}
-	$("play_all2").innerText=play_all2;
-	$("play_win2").innerText=play_win2;
-	$("play_lose2").innerText=play_lose2;
-	$("play_draw2").innerText=play_draw2;
+	$("play_all2").innerHTML=play_all2;
+	$("play_win2").innerHTML=play_win2;
+	$("play_lose2").innerHTML=play_lose2;
+	$("play_draw2").innerHTML=play_draw2;
 }
 //点击按钮后的比较函数
 function compare2(){
 	var play2=new Play2();
 	play2.compareRes2();
 	play2.showRes2();
-	arrAll2.push2(play2.res2);
+	arrAll2.push(play2.res2);
 	manageArrall2();
 }
 //初始化函数，将所有的图片归为初始图片，比赛结果置0，总体数组置空
@@ -206,9 +209,10 @@ function startInit2(){
 	$("you_choice2").src="default.png";
 	$("choice2_final").src="default.png";
 	$("result2").innerText="Draw!!";
-	$("play_all2").innerText=0;
-	$("play_win2").innerText=0;
-	$("play_lose2").innerText=0;
-	$("play_draw2").innerText=0;
+	$("play_all2").innerHTML=0;
+	$("play_win2").innerHTML=0;
+	$("play_lose2").innerHTML=0;
+	$("play_draw2").innerHTML=0;
+	$("result2").innerHTML="Result!!";
 	arrAll2=[];
 }

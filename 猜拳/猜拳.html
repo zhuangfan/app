@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../libs/jquery.mobile-1.4.5.min.css">	
+	<link rel="stylesheet" href="../libs/qunit/qunit-1.18.0.css">
+	<link rel="stylesheet" type="text/css" href="猜拳.css" />
+	<script language="javascript" type="text/javascript" src="猜拳.js"></script>
+	<script src="../libs/jquery.min.js"></script>
+	<script src="../libs/jquery.storageapi.min.js"></script>
+	<script src="../libs/jquery.mobile-1.4.5.min.js"></script>
+    	<script src="../libs/plugin/jquery.validate.min.js"></script>
+    	<script src="../libs/plugin/jquery.form.min.js"></script>
+	<script src="../libs/plugin/jquery.metadata.js"></script>
+    	<script src="../libs/plugin/localization/messages_zh.min.js"></script>
+    	<script src="猜拳.js"></script>
+	<title>猜拳游戏</title>
+</head>
+<body>
+<div data-role="page" class="ui-page-theme-a" id="pgUserHome" data-title="猜拳">
+<div data-role="header" data-position="fixed" data-theme="a">
+	<h1>猜拳</h1>
+</div>
+<div class="div1">
+<table border="1px">
+<tr>
+	<td class="td_big">你<br><img id="you_choice_final" src="default.png" /></td>
+	<td>VS</td>
+	<td class="td_big">电脑<br><img id="computer_choice_final" src="default.png" /></td>
+</tr>
+<tr><td colspan="3"><span id="result">Result!!</span></td></tr>
+<tr>
+	<td class="td_big">你选择了<br><img id="you_choice" src="default.png" /></td>
+	<td>请选择出拳
+		<select  onchange="chose(this)">
+			<option value="jian.png">剪刀</option>
+			<option value="shi.png">石头</option>
+			<option value="bu.png">布</option>
+		</select>
+		</br>
+	</td>
+	<td class="td_big">
+		<input type="button" value="想好了，出拳" onclick="compare()" class="button" />
+		<input type="button" value="重新再来过"  onclick="startInit()" class="button" />
+	</td>
+</tr>
+<tr>
+	<td colspan="3">总局数：<span id="play_all">0</span>
+		赢：<span id="play_win">0</span>
+		输：<span id="play_lose">0</span>
+		平：<span id="play_draw">0</span>
+	</td>
+</tr>
+</table>
+</div>
+
+<div class="div1">
+<table border="5px">
+<tr>
+	<td class="td_big">PK者1<br><img id="choice1_final" src="default.png" /></td>
+	<td>VS</td>
+	<td class="td_big">PK者2<br><img id="choice2_final" src="default.png" /></td>
+</tr>
+<tr><td colspan="3">
+	<span id="result2">Result!!</span></td>
+</tr>
+<tr>
+    	<td class="td_big">PK者1选择了<br><img id="you_choice1" src="default.png" /></br>
+    		请选择出拳
+    		<select  onchange="chose2(this)">
+			<option value="jian.png">剪刀</option>
+			<option value="shi.png">石头</option>
+			<option value="bu.png">布</option>
+    		</select></br>	
+    	</td>
+    	<td>choise</br>
+		<input type="button" value="出拳" onclick="compare2()" class="button" /></br>
+		<input type="button" value="重新再来过"  onclick="startInit2()" class="button" />
+    	</td>
+    	<td class="td_big">PK者2选择了<br><img id="you_choice2" src="default.png" /></br>
+		请选择出拳
+		<select  onchange="chose3(this)">
+			<option value="jian.png">剪刀</option>
+			<option value="shi.png">石头</option>
+			<option value="bu.png">布</option>
+		</select></br>
+    	</td>
+</tr>
+<tr>
+    	<td colspan="3">总局数：<span id="play_all2">0</span>
+		PK1赢：<span id="play_win2">0</span>
+		PK2赢：<span id="play_lose2">0</span>
+		平：<span id="play_draw2">0</span>
+    	</td>
+</tr>
+</table>
+</div>
+
+ <div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#pgUserHome" data-prefetch="true" data-transition="flip">应用</a></li>
+        <li><a href="#pgTestHome" data-prefetch="true" data-transition="flip">测试</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" class="ui-page-theme-a" id="pgTestHome" data-title="测试">
+	<div data-role="header" data-position="fixed" data-theme="a">
+		<h1>测试</h1>
+	</div>
+	<div data-role="main" class="ui-content">
+	  <div id="qunit"></div>
+	  <div id="qunit-fixture"></div>
+	</div>
+  <div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#pgUserHome" data-prefetch="true" data-transition="flip">应用</a></li>
+        <li><a href="#pgTestHome" data-prefetch="true" data-transition="flip">测试</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+
+  <script src="../libs/qunit/qunit-1.18.0.js"></script>
+  <script src="猜拳Test.js"></script>
+
+<html>
