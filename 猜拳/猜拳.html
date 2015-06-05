@@ -5,13 +5,8 @@
 	<link rel="stylesheet" href="../libs/qunit/qunit-1.18.0.css">
 	<link rel="stylesheet" type="text/css" href="猜拳.css" />
 	<script language="javascript" type="text/javascript" src="猜拳.js"></script>
-	<script src="../libs/jquery.min.js"></script>
-	<script src="../libs/jquery.storageapi.min.js"></script>
-	<script src="../libs/jquery.mobile-1.4.5.min.js"></script>
-    	<script src="../libs/plugin/jquery.validate.min.js"></script>
-    	<script src="../libs/plugin/jquery.form.min.js"></script>
-	<script src="../libs/plugin/jquery.metadata.js"></script>
-    	<script src="../libs/plugin/localization/messages_zh.min.js"></script>
+	<script src="../libs/jquery.min.js"></script>	
+	<script src="../libs/jquery.mobile-1.4.5.min.js"></script>  
     	<script src="猜拳.js"></script>
 	<title>猜拳游戏</title>
 </head>
@@ -23,9 +18,15 @@
 <div class="div1">
 <table border="1px">
 <tr>
-	<td class="td_big">你<br><img id="you_choice_final" src="default.png" /></td>
-	<td>VS</td>
-	<td class="td_big">电脑<br><img id="computer_choice_final" src="default.png" /></td>
+	<td class="td_big"><br><div id="blink"><FONT SIZE=5 FACE="Meiryo">你</FONT></div> 
+	<script language="javascript"> function changeColor(){ 
+		var color="#f00|#0f0|#00f|#880|#808|#088|yellow|green|pink|white"; 
+		color=color.split("|"); 
+		document.getElementById("blink").style.color=color[parseInt(Math.random() * color.length)]; } 
+	setInterval("changeColor()",200); 
+	</script><br><img id="you_choice_final" src="0.5.gif" /> </td>	
+	<td >VS</td>
+	<td class="td_big"><br>电脑<br><br><img id="computer_choice_final" src="0.5.gif" /></td>	
 </tr>
 <tr><td colspan="3"><span id="result">Result!!</span></td></tr>
 <tr>
@@ -34,7 +35,7 @@
 		<select  onchange="chose(this)">
 			<option value="jian.png">剪刀</option>
 			<option value="shi.png">石头</option>
-			<option value="bu.png">布</option>
+			<option value="bu.png">布 </option>
 		</select>
 		</br>
 	</td>
@@ -56,9 +57,9 @@
 <div class="div1">
 <table border="5px">
 <tr>
-	<td class="td_big">PK者1<br><img id="choice1_final" src="default.png" /></td>
+	<td class="td_big">PK者1<br><img id="choice1_final" src="0.5.gif" /></td>
 	<td>VS</td>
-	<td class="td_big">PK者2<br><img id="choice2_final" src="default.png" /></td>
+	<td class="td_big">PK者2<br><img id="choice2_final" src="0.5.gif" /></td>
 </tr>
 <tr><td colspan="3">
 	<span id="result2">Result!!</span></td>
@@ -69,10 +70,10 @@
     		<select  onchange="chose2(this)">
 			<option value="jian.png">剪刀</option>
 			<option value="shi.png">石头</option>
-			<option value="bu.png">布</option>
+			<option value="bu.png">布   </option>
     		</select></br>	
     	</td>
-    	<td>choise</br>
+    	<td>chose</br>
 		<input type="button" value="出拳" onclick="compare2()" class="button" /></br>
 		<input type="button" value="重新再来过"  onclick="startInit2()" class="button" />
     	</td>
